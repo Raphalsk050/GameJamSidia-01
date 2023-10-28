@@ -10,7 +10,7 @@ namespace SidiaGameJam.DebugFunctions
 
         public Vector2 Position { get; set; }
 
-        public void DrawGizmos()
+        public void OnDrawGizmos()
         {
             Gizmos.color = DebugColor;
 
