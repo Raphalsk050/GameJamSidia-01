@@ -44,6 +44,23 @@ namespace GJS.Helper
             finished?.Invoke();
         }
 
+        public static IEnumerator Lerp(float startValue, float endValue, float lerpTime, Action<float, float> callback, Action finished = null)
+        {
+            var timeElapsed = 0.0f;
+            callback?.Invoke(startValue, 0f);
+
+            while (timeElapsed < lerpTime)
+            {
+                timeElapsed += Time.deltaTime;
+                var t = timeElapsed / lerpTime;
+                var value = Mathf.Lerp(startValue, endValue, t);
+                callback?.Invoke(value, t);
+                yield return _waitEndOfFrame;
+            }
+        
+            callback?.Invoke(endValue, 1f);
+            finished?.Invoke();
+        }
 
     }
 
