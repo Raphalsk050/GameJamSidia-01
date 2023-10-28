@@ -81,7 +81,7 @@ namespace SidiaGameJam.Components
         
         public void Follow()
         {
-            _pawnController.Move(_directionMovement.x * _pawnController.MovementSpeed);
+            _pawnController.Move(_directionMovement.x);
         }
     }
 }

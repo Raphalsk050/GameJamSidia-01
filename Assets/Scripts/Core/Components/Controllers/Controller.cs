@@ -120,7 +120,6 @@ namespace SidiaGameJam.Controller
             DebugDraw.Shape = EDebugShape.Sphere;
             DebugDraw.DebugColor = new Color(0.97f, 0f, 1f, 0.38f);
             DebugDraw.Size = Vector3.one * interactionRadius;
-            DebugDraw.DrawGizmos();
         }
 
         protected virtual void SetCharacterRigidbodyVelocity(float value)
