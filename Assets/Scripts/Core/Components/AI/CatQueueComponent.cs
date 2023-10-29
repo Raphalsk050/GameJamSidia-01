@@ -1,6 +1,7 @@
 using SidiaGameJam.Components;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using CatController = SidiaGameJam.Controller.CharacterController;
 
@@ -8,8 +9,10 @@ public class CatQueueComponent : MonoBehaviour
 {
     public List<GameObject> Cats = new();
     public MainInputAction inputAction;
+    public CinemachineVirtualCamera virtualCatCamera;
 
     private static int _selectedCatIndex;
+    private static CinemachineVirtualCamera _catCamera;
     private static List<CatController> _characterControllers = new();
     private static List<AIBrainComponent> _aiBrains = new();
 
@@ -22,6 +25,7 @@ public class CatQueueComponent : MonoBehaviour
     private void Initialize()
     {
         inputAction = new MainInputAction();
+        _catCamera = virtualCatCamera;
         for (int i = 0; i < Cats.Count; i++)
         {
             var cat = Cats[i];
@@ -58,6 +62,7 @@ public class CatQueueComponent : MonoBehaviour
 
                 //to enable the controlled cat input
                 _characterControllers[i].EnableInput();
+                _catCamera.Follow = _characterControllers[i].transform;
             }
 
             else
