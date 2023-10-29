@@ -6,6 +6,7 @@ using SidiaGameJam.Components;
 using SidiaGameJam.Core.Items;
 using SidiaGameJam.DebugFunctions;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace SidiaGameJam.Controller
 {
@@ -21,7 +22,6 @@ namespace SidiaGameJam.Controller
         [SerializeField] protected bool debug = true;
         [SerializeField] protected float attackRange;
         [SerializeField] protected SoEventRelated attackEventRelated;
-        [SerializeField] protected float jumpForce = 50f;
         [SerializeField] protected SoEventRelated jumpEventRelated;
         [SerializeField] protected SoEventOneParamRelated<bool> fallingBoolEvent;
         [SerializeField] protected SoEventOneParamRelated<bool> groundedBoolEvent;
@@ -31,6 +31,7 @@ namespace SidiaGameJam.Controller
         [SerializeField] protected float interactionDistance = 1.2f;
 
         
+        protected float jumpForce;
         protected ContactFilter2D ContactFilter;
         protected AbilityComponent AbilityComponent;
         protected float InputVelocity;
@@ -70,10 +71,7 @@ namespace SidiaGameJam.Controller
         {
             base.Awake();
             InitializeVariables();
-            ConfigureRigidBodyComponent();
-            if (!GetOwner().GetComponent<CharacterBase>())
-                return;
-            Speed = GetOwner().GetComponent<CharacterBase>().characterData.WalkSpeed;
+            
         }
         public virtual void EnableInput()
         {
@@ -109,17 +107,8 @@ namespace SidiaGameJam.Controller
         {
             Gizmos.color = debugColor;
 
-            if (!debug || !DebugDraw) return;
-            
-            DebugDraw.Position = PositionToCheckGround;
-            DebugDraw.Shape = EDebugShape.Cube;
-            DebugDraw.DebugColor = debugColor;
-            DebugDraw.Size = GroundCheckBoxSizeWithVelocity;
 
-            DebugDraw.Position = transform.position + Vector3.up * 0.001f * interactionDistance;
-            DebugDraw.Shape = EDebugShape.Sphere;
-            DebugDraw.DebugColor = new Color(0.97f, 0f, 1f, 0.38f);
-            DebugDraw.Size = Vector3.one * interactionRadius;
+            Gizmos.DrawCube(PositionToCheckGround, GroundCheckBoxSizeWithVelocity);
         }
 
         protected virtual void SetCharacterRigidbodyVelocity(float value)
@@ -159,6 +148,12 @@ namespace SidiaGameJam.Controller
             SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
             AbilityComponent = GetComponent<AbilityComponent>();
             DebugDraw = GetComponent<DebugDrawGizmos>();
+
+            ConfigureRigidBodyComponent();
+            if (!GetOwner().GetComponent<CharacterBase>())
+                return;
+            Speed = GetOwner().GetComponent<CharacterBase>().characterData.WalkSpeed;
+            jumpForce = GetOwner().GetComponent<CharacterBase>().characterData.JumpForce;
         }
 
         public virtual Vector3 GetPlayerCharacterVector()

@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 8569671555336071904}
   - component: {fileID: 5642272266777919612}
   - component: {fileID: 1267443752422109656}
-  - component: {fileID: 1010377132996239610}
+  - component: {fileID: 936021985659613146}
   - component: {fileID: 1347006105191924693}
   - component: {fileID: 6394346830133321613}
   - component: {fileID: 3036984322893825628}
@@ -381,7 +381,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1010377132996239610
+--- !u!114 &936021985659613146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -390,21 +390,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 3696205520834096937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050f75eff41946b397c1df5b11ab6558, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ef9997437ae469592738bfc667c2eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   distanceOfBoxCast: 0
   walkableLayers:
     serializedVersion: 2
     m_Bits: 64
-  debugColor: {r: 0, g: 0.058741093, b: 1, a: 0.49803922}
-  groundCheckBoxSize: {x: 0.2939892, y: 0.4}
-  maxCheckGroundFallSize: 0.2
+  debugColor: {r: 1, g: 0, b: 0, a: 0.59607846}
+  groundCheckBoxSize: {x: 0.2939892, y: 0.04}
+  maxCheckGroundFallSize: -0.3
   groundCheckerOffset: {x: 0, y: -0.03, z: 0}
   debug: 0
-  attackRange: 0
+  attackRange: 1
   attackEventRelated: {fileID: 11400000, guid: 5028b616fda88aa4ca8615b84fb95ab8, type: 2}
-  jumpForce: 23
   jumpEventRelated: {fileID: 11400000, guid: 83e9b341281a3f340abfbebbed0358ef, type: 2}
   fallingBoolEvent: {fileID: 11400000, guid: 89643d26f7fbf4647a4603f6b7ade125, type: 2}
   groundedBoolEvent: {fileID: 11400000, guid: dbe212d09e5d023459978ff4081767dc, type: 2}
@@ -412,8 +411,13 @@ MonoBehaviour:
   interactionLayer:
     serializedVersion: 2
     m_Bits: 0
-  interactionRadius: 0.6
+  interactionRadius: 1.5
   interactionDistance: 1.2
+  dodgeEventRelated: {fileID: 11400000, guid: 239cced6f674b884da3fe999d69924da, type: 2}
+  dodgingBoolEvent: {fileID: 11400000, guid: 6fe39960076f5094eaedf030090d8557, type: 2}
+  dodgeDistance: 5
+  dodgeCooldown: 0.7
+  dodgeDuration: 0.5
 --- !u!114 &1347006105191924693
 MonoBehaviour:
   m_ObjectHideFlags: 0

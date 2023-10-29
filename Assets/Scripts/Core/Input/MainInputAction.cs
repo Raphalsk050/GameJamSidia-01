@@ -80,6 +80,15 @@ public partial class @MainInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeSelectedCat"",
+                    ""type"": ""Button"",
+                    ""id"": ""c76cc4cc-2da3-4366-badb-39f6e90ebfa2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,17 @@ public partial class @MainInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""AbilityOne"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24f82db6-2778-437b-872f-86dd8e2fd1f8"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeSelectedCat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -320,6 +340,7 @@ public partial class @MainInputAction: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_DodgeRoll = m_Player.FindAction("DodgeRoll", throwIfNotFound: true);
         m_Player_AbilityOne = m_Player.FindAction("AbilityOne", throwIfNotFound: true);
+        m_Player_ChangeSelectedCat = m_Player.FindAction("ChangeSelectedCat", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Inventory = m_UI.FindAction("Inventory", throwIfNotFound: true);
@@ -391,6 +412,7 @@ public partial class @MainInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_DodgeRoll;
     private readonly InputAction m_Player_AbilityOne;
+    private readonly InputAction m_Player_ChangeSelectedCat;
     public struct PlayerActions
     {
         private @MainInputAction m_Wrapper;
@@ -401,6 +423,7 @@ public partial class @MainInputAction: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @DodgeRoll => m_Wrapper.m_Player_DodgeRoll;
         public InputAction @AbilityOne => m_Wrapper.m_Player_AbilityOne;
+        public InputAction @ChangeSelectedCat => m_Wrapper.m_Player_ChangeSelectedCat;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -428,6 +451,9 @@ public partial class @MainInputAction: IInputActionCollection2, IDisposable
             @AbilityOne.started += instance.OnAbilityOne;
             @AbilityOne.performed += instance.OnAbilityOne;
             @AbilityOne.canceled += instance.OnAbilityOne;
+            @ChangeSelectedCat.started += instance.OnChangeSelectedCat;
+            @ChangeSelectedCat.performed += instance.OnChangeSelectedCat;
+            @ChangeSelectedCat.canceled += instance.OnChangeSelectedCat;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -450,6 +476,9 @@ public partial class @MainInputAction: IInputActionCollection2, IDisposable
             @AbilityOne.started -= instance.OnAbilityOne;
             @AbilityOne.performed -= instance.OnAbilityOne;
             @AbilityOne.canceled -= instance.OnAbilityOne;
+            @ChangeSelectedCat.started -= instance.OnChangeSelectedCat;
+            @ChangeSelectedCat.performed -= instance.OnChangeSelectedCat;
+            @ChangeSelectedCat.canceled -= instance.OnChangeSelectedCat;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -529,6 +558,7 @@ public partial class @MainInputAction: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnDodgeRoll(InputAction.CallbackContext context);
         void OnAbilityOne(InputAction.CallbackContext context);
+        void OnChangeSelectedCat(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

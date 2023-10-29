@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8666363816892255561}
   - component: {fileID: 2181215962706986980}
   - component: {fileID: 6612867273527710347}
-  - component: {fileID: 503487430229883130}
   - component: {fileID: 357659406514117578}
   - component: {fileID: 3512608801033096157}
   - component: {fileID: 4427239672794197225}
+  - component: {fileID: 1216737974843160196}
   m_Layer: 9
   m_Name: Paper
   m_TagString: Untagged
@@ -111,39 +111,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &503487430229883130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4805217277494501335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050f75eff41946b397c1df5b11ab6558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceOfBoxCast: 0
-  walkableLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  debugColor: {r: 0, g: 0.058741093, b: 1, a: 0.49803922}
-  groundCheckBoxSize: {x: 0.2939892, y: 0.4}
-  maxCheckGroundFallSize: 0.2
-  groundCheckerOffset: {x: 0, y: -0.03, z: 0}
-  debug: 0
-  attackRange: 0
-  attackEventRelated: {fileID: 11400000, guid: 5028b616fda88aa4ca8615b84fb95ab8, type: 2}
-  jumpForce: 23
-  jumpEventRelated: {fileID: 11400000, guid: 83e9b341281a3f340abfbebbed0358ef, type: 2}
-  fallingBoolEvent: {fileID: 11400000, guid: 89643d26f7fbf4647a4603f6b7ade125, type: 2}
-  groundedBoolEvent: {fileID: 11400000, guid: dbe212d09e5d023459978ff4081767dc, type: 2}
-  movementFloatEvent: {fileID: 11400000, guid: 8318cf0b65f95194c92e66deeb2a31d0, type: 2}
-  interactionLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  interactionRadius: 0.6
-  interactionDistance: 1.2
 --- !u!114 &357659406514117578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +155,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: b68f97606b6421a4dbbcaf0f5c386f88, type: 2}
+--- !u!114 &1216737974843160196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4805217277494501335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef9997437ae469592738bfc667c2eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceOfBoxCast: 0
+  walkableLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  debugColor: {r: 1, g: 0, b: 0, a: 0.5882353}
+  groundCheckBoxSize: {x: 0.2939892, y: 0.04}
+  maxCheckGroundFallSize: -0.3
+  groundCheckerOffset: {x: 0, y: -0.03, z: 0}
+  debug: 0
+  attackRange: 1
+  attackEventRelated: {fileID: 11400000, guid: 5028b616fda88aa4ca8615b84fb95ab8, type: 2}
+  jumpEventRelated: {fileID: 11400000, guid: 83e9b341281a3f340abfbebbed0358ef, type: 2}
+  fallingBoolEvent: {fileID: 11400000, guid: 89643d26f7fbf4647a4603f6b7ade125, type: 2}
+  groundedBoolEvent: {fileID: 11400000, guid: dbe212d09e5d023459978ff4081767dc, type: 2}
+  movementFloatEvent: {fileID: 11400000, guid: 8318cf0b65f95194c92e66deeb2a31d0, type: 2}
+  interactionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  interactionRadius: 1.5
+  interactionDistance: 1.2
+  dodgeEventRelated: {fileID: 11400000, guid: 239cced6f674b884da3fe999d69924da, type: 2}
+  dodgingBoolEvent: {fileID: 11400000, guid: 6fe39960076f5094eaedf030090d8557, type: 2}
+  dodgeDistance: 5
+  dodgeCooldown: 0.7
+  dodgeDuration: 0.5
 --- !u!1 &7694211358698539281
 GameObject:
   m_ObjectHideFlags: 0

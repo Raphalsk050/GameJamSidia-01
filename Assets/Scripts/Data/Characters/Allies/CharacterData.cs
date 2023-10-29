@@ -10,5 +10,6 @@ namespace SidiaGameJam.Data.Character
         public Sprite CharacterImage;
         public float MaxLife;
         public float WalkSpeed;
+        public float JumpForce;
     }
 }
