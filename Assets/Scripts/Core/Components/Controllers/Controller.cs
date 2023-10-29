@@ -266,9 +266,9 @@ namespace SidiaGameJam.Controller
         {
             if (InputState != InputState.Enabled) return;
             
-            movementFloatEvent.InvokeAction(Mathf.Abs(value), gameObject);
             MovementInputVelocity = value;
             if (Mathf.Abs(value) > 0.05f) SpriteRenderer.flipX = !(value > 0f);
+            movementFloatEvent.InvokeAction(Mathf.Abs(value), gameObject);
         }
     }
 }

@@ -64,7 +64,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6612867273527710347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   movementFloatEvent: {fileID: 11400000, guid: 8318cf0b65f95194c92e66deeb2a31d0, type: 2}
   interactionLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   interactionRadius: 1.5
   interactionDistance: 1.2
   dodgeEventRelated: {fileID: 11400000, guid: 239cced6f674b884da3fe999d69924da, type: 2}
@@ -202,6 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3958883222209472515}
   - component: {fileID: 1709178151432254366}
+  - component: {fileID: 4432324924327680607}
   - component: {fileID: 3278898937354654773}
   - component: {fileID: 6468187560956616820}
   - component: {fileID: 4442878972133909214}
@@ -225,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 7694211358698539281}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.179, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -272,9 +273,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: abb10f9b0905f6e41be1c43f205ae0e0,
-    type: 3}
-  m_Color: {r: 0, g: 0.5804844, b: 1, a: 1}
+  m_Sprite: {fileID: -1066681136, guid: 53a3f60fa4293644aa210d006c507320, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -284,6 +284,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4432324924327680607
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694211358698539281}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4657c085cc166754c8f81fe291c2ea01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3278898937354654773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +359,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447f77e20da743ef9ef18e4b365740e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events: []
+  events:
+  - soEvent: {fileID: 11400000, guid: 8318cf0b65f95194c92e66deeb2a31d0, type: 2}
+    eventExecutor:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6468187560956616820}
+          m_TargetAssemblyTypeName: SidiaGameJam.Controller.PlayerAnimationController,
+            Assembly-CSharp
+          m_MethodName: Move
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &3794411735728111559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +389,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a319f8725e7042eeb37e6dd2ba3f4054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events: []
+  events:
+  - soEvent: {fileID: 11400000, guid: 89643d26f7fbf4647a4603f6b7ade125, type: 2}
+    eventExecutor:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6468187560956616820}
+          m_TargetAssemblyTypeName: SidiaGameJam.Controller.PlayerAnimationController,
+            Assembly-CSharp
+          m_MethodName: Falling
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - soEvent: {fileID: 11400000, guid: dbe212d09e5d023459978ff4081767dc, type: 2}
+    eventExecutor:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6468187560956616820}
+          m_TargetAssemblyTypeName: SidiaGameJam.Controller.PlayerAnimationController,
+            Assembly-CSharp
+          m_MethodName: Grounded
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!82 &5818763027103233410
 AudioSource:
   m_ObjectHideFlags: 0
