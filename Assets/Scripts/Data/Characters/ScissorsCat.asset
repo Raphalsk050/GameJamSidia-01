@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cb48b1e54d142f8856831584c5db363, type: 3}
-  m_Name: RockyCat
+  m_Name: ScissorsCat
   m_EditorClassIdentifier: 
-  CharacterName: RockCat
+  CharacterName: ScissorsCat
   Decription: 
   CharacterImage: {fileID: 0}
   MaxLife: 20
   WalkSpeed: 5
-  JumpForce: 6
+  JumpForce: 8

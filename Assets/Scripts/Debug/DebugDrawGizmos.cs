@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+﻿
 
 using UnityEngine;
 
@@ -18,12 +18,12 @@ namespace SidiaGameJam.DebugFunctions
             {
                 case EDebugShape.Cube:
                     Gizmos.DrawCube(Position, _size);
-                    Gizmos.DrawWireCube(Position, _size);
+                    //Gizmos.DrawWireCube(Position, _size);
                     break;
 
                 case EDebugShape.Sphere:
                     Gizmos.DrawSphere(Position, _size.x);
-                    Gizmos.DrawWireSphere(Position, _size.x);
+                    //Gizmos.DrawWireSphere(Position, _size.x);
                     break;
             }
         }
@@ -39,4 +39,3 @@ namespace SidiaGameJam.DebugFunctions
         }
     }
 }
-#endif

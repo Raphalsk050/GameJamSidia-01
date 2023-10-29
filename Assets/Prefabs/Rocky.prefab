@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 8079725453380054572}
   - component: {fileID: 9206134185578442511}
   - component: {fileID: 772104376222746786}
+  - component: {fileID: 5467561570720921626}
   m_Layer: 8
   m_Name: Rocky
   m_TagString: Player
@@ -398,14 +399,13 @@ MonoBehaviour:
   walkableLayers:
     serializedVersion: 2
     m_Bits: 64
-  debugColor: {r: 1, g: 0, b: 0, a: 1}
+  debugColor: {r: 1, g: 0, b: 0, a: 0.6117647}
   groundCheckBoxSize: {x: 0.2939892, y: 0.04}
-  maxCheckGroundFallSize: 0.2
+  maxCheckGroundFallSize: -0.3
   groundCheckerOffset: {x: 0, y: -0.03, z: 0}
-  debug: 0
+  debug: 1
   attackRange: 1
   attackEventRelated: {fileID: 11400000, guid: 5028b616fda88aa4ca8615b84fb95ab8, type: 2}
-  jumpForce: 23
   jumpEventRelated: {fileID: 11400000, guid: 83e9b341281a3f340abfbebbed0358ef, type: 2}
   fallingBoolEvent: {fileID: 11400000, guid: 89643d26f7fbf4647a4603f6b7ade125, type: 2}
   groundedBoolEvent: {fileID: 11400000, guid: dbe212d09e5d023459978ff4081767dc, type: 2}
@@ -492,3 +492,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42179ee5e8794be0a61821bf68f58312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5467561570720921626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3490631441298132638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655b301a0a4849d18c3fefe102fd1ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  canAttack: 0
+  distanceTolerance: 1

@@ -27,27 +27,6 @@ namespace SidiaGameJam.Controller
         public float WeaponHolderPositionOffset { get; } = 0.143f;
         public float CharacterHeight { get; } = 0.857f;
 
-        /*private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.CompareTag("Weapon"))
-            {
-                /*other.gameObject.GetComponent<WeaponBase>().Abilities
-                    .ForEach(ability => _abilityComponent.AddAbility(ability));#1#
-
-                var weaponAbilities = other.gameObject.GetComponent<WeaponBase>().Abilities;
-                foreach (var ability in weaponAbilities)
-                {
-                    _abilityComponent.AddAbility(ability);
-                }
-            }
-        }*/
-
-        /*protected override void OnDrawGizmos()
-        {
-            base.OnDrawGizmos();
-            Gizmos.DrawWireSphere(PointToAttack, attackRange);
-        }*/
-
         protected override void InitializeVariables()
         {
             base.InitializeVariables();
@@ -83,7 +62,7 @@ namespace SidiaGameJam.Controller
             //theoAnimationController.onYVelocityChange?.Invoke(_rigidbody.velocity.y);
         }
 
-        private void BindInputKeys()
+        public void BindInputKeys()
         {
             //player input actions
             _playerInput.Player.Move.started += MovementCallback;
@@ -94,6 +73,7 @@ namespace SidiaGameJam.Controller
             _playerInput.Player.Jump.performed += _ => { Jump(); };
             _playerInput.Player.AbilityOne.performed += _ => { ExecuteAbilityOnSlotOne();};
             _playerInput.Player.Attack.started += _ => { Attack(); };
+            _playerInput.Player.ChangeSelectedCat.performed += _ => { CatQueueComponent.ChangeToNextCatIndex(); };
 
             //ui input actions
             _playerInput.UI.Inventory.performed += _ => { OpenCloseInventory(); };
@@ -187,7 +167,6 @@ namespace SidiaGameJam.Controller
         {
             InitializeVariables();
             BindInputKeys();
-            EnableInput();
         }
 
         private void OnDisable()

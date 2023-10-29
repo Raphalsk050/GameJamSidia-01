@@ -17,3 +17,4 @@ MonoBehaviour:
   CharacterImage: {fileID: 0}
   MaxLife: 20
   WalkSpeed: 5
+  JumpForce: 13
